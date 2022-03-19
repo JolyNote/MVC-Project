@@ -1,10 +1,10 @@
 <?php
-$title = 'Регистрация в системе';
+$title = 'Авторизация в системе';
 @include_once 'header.php';
 ?>
 
-<?= ( isset($_GET['error_password'])
-    ? "<div class='alert alert-danger'>Пароли не совпали!</div>"
+<?= ( isset($_GET['error_auth'])
+    ? "<div class='alert alert-danger'>Логин или пароль неверный!</div>"
     : "" )
 ?>
     <div class="container">
@@ -12,11 +12,6 @@ $title = 'Регистрация в системе';
             <div class="col"></div>
             <div class="col-6 border border-1 rounded-2 mt-2 p-2">
                 <form action="" method="POST">
-                    <div class="mb-3">
-                        <label for="inputName" class="form-label">Ваше ФИО:</label>
-                        <input type="text" name="name" <?= $isError('name', true) ?> id="inputName" placeholder="Фамилия Имя Отчество">
-                        <?= $isError('name') ?>
-                    </div>
                     <div class="mb-3">
                         <label for="inputLogin" class="form-label">Ваш логин:</label>
                         <input type="text" name="login" <?= $isError('login', true) ?> id="inputLogin" placeholder="Укажите логин" required>
@@ -27,12 +22,7 @@ $title = 'Регистрация в системе';
                         <input type="password" name="password" <?= $isError('password', true) ?> id="inputPassword" placeholder="Укажите пароль:" required>
                         <?= $isError('password') ?>
                     </div>
-                    <div class="mb-3">
-                        <label for="inputPasswordConfirmed" class="form-label">Ваш повтор пароля:</label>
-                        <input type="password" name="password_confirmed" <?= $isError('password_confirmed', true) ?> id="inputPasswordConfirmed" placeholder="Укажите пароль повторно:" required>
-                        <?= $isError('password_confirmed') ?>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Регистрация</button>
+                    <button type="submit" class="btn btn-primary">Авторизация</button>
                 </form>
             </div>
             <div class="col"></div>
