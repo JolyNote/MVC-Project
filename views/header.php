@@ -15,7 +15,7 @@
             echo "<link rel='stylesheet' href='/assets/css/{$item}'>";
     if(isset($javascript))
         foreach($javascript as $item)
-            echo "<script src='/assets/js/{$item['src']}' " . ($item['defer'] ? 'defer' : '' ) . "></script>"
+            echo "<script src='/assets/js/{$item['src']}' " . (isset($item['defer']) ? 'defer' : '' ) . "></script>"
     ?>
 </head>
 <body>
@@ -32,12 +32,18 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Главная</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Авторизация</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">Регистрация</a>
-                </li>
+                <?php if(has_session('id')): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/account">Мой аккаунт</a>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Авторизация</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Регистрация</a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

@@ -23,7 +23,7 @@ function view($name, $arg = []) {
             $arrAttributes["class"][] = "form-control";
             # Если есть ошибки, то добавим класс из переменной $class
             $arrAttributes["class"][] = $class;
-            # Сгенерируем для aria_describedby значение динамически validation ЗНАЧЕНИЕИЗПЕРЕМЕННОЙFeedback
+            # Сгенерируем для aria_describedby значение динамически validationЗНАЧЕНИЕИЗПЕРЕМЕННОЙFeedback
             $arrAttributes["aria_describedby"][] = "validation{$errorName}Feedback";
 
             # Переменная хранящая текст для внесения в input
